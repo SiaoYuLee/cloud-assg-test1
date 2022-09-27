@@ -260,9 +260,6 @@
             <div class="post">
               <h2>PAYROLL</h2>
               <p>Please fill the employee details</p>
-              <div class="form-container">
-                <form action="/payroll/results" autocomplete="on" method="POST" enctype="multipart/form-data"
-                  class="form-bubble">
                   <div class="form-container form-container-get">
                     <form action="/payroll/results" autocomplete="on" method="POST" class="form-bubble">
                     <div class="form-bubble-container">
@@ -276,8 +273,10 @@
                       <br>
                       <label>Working Day Per Week:</label>
                       <input type="number" name="days" autofocus size="40">
+                      <br>
                     </div>
                   
+                    <br>
                     <div class="button-container1">   
                       <a href="/payroll/results">            
                         <button type="submit" class="form-button2">CALCULATE PAYROLL</button>
