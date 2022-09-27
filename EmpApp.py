@@ -3,9 +3,10 @@ from datetime import datetime
 from pymysql import connections
 from config import *
 import boto3
+import os
 
 app = Flask(__name__)
-app.secret_key = "magiv"
+app.secret_key = "magic"
 
 bucket = custombucket
 region = customregion
@@ -167,16 +168,12 @@ def checkOut():
         
     return render_template("AttendanceOutput.html",date=datetime.now(),Checkout = formatted_checkout,
      LoginTime=formatted_login[0],TotalWorkingHours=Total_Working_Hours)
-
-   
-    
-
+     
 #Get Employee DONE
 @app.route("/getemp/")
 def getEmp():
     
     return render_template('getemp.html',date=datetime.now())
-
 
 #Get Employee Results
 @app.route("/getemp/results",methods=['GET','POST'])
@@ -262,58 +259,37 @@ def leaveapplication():
     return render_template("leaveapplication.html",date=datetime.now())
 
 #Leave OUTPUT
-#@app.route("/leaveapplication/results",methods=['GET','POST'])
-#def Emp():
+@app.route("/leaveapplication/results",methods=['GET','POST'])
+def leaveapplicationoutput():
 
-#    emp_id = request.form['emp_id']
-#    name = request.form['name']
-#    emp_ic = request.form['emp_ic']
-#    num_of_days = request.form['num_of_days']
-#    start_date = request.form['start_date']
-#    end_date = request.files['end_date']
-#    type_of_leave = request.files['type_of_leave']
-#    reason = request.files['reason']
-#    application_date = request.files['application_date']
-#    approval = 'pending'
-#    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %#s,%s)"
-#    cursor = db_conn.cursor()
+    emp_id = request.form['emp_id']
+    emp_name = request.form['emp_name']
+    emp_ic = request.form['emp_ic']
+    num_of_days = request.form['num_of_days']
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
+    type_of_leave = request.form['type_of_leave']
+    reason = request.form['reason']
+    application_date = request.form['application_date']
+    approval = 'pending'
+    #insert_sql_leave = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO leaveapply VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    cursor = db_conn.cursor()
 
-#    if emp_image_file.filename == "":
-#        return "Please select a file"
+    try:
+        cursor.execute(insert_sql, (emp_id, emp_name, emp_ic, num_of_days, start_date, end_date, type_of_leave, reason, application_date, approval))
+        db_conn.commit()
 
-#    try:
+    finally:
+        cursor.close()
 
-#        cursor.execute(insert_sql, (emp_id, first_name, #last_name, pri_skill, location,check_in))
-#        db_conn.commit()
-#        emp_name = "" + first_name + " " + last_name
-        # Uplaod image file in S3 #
-#        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + #"_image_file"
-#        s3 = boto3.resource('s3')
+    print("all modification done...")
+    return render_template('leaveapplicationoutput.html', name=emp_name)
 
-#        try:
-#            print("Data inserted in MySQL RDS... uploading image #to S3...")
-            #s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3#, Body=emp_image_file)
-#            bucket_location = #boto3.client('s3').get_bucket_location(Bucket=custombucket)
-#            s3_location = #(bucket_location['LocationConstraint'])
-
-#            if s3_location is None:
-#                s3_location = ''
-#            else:
-#                s3_location = '-' + s3_location
-
-#            object_url = #"https://s3{0}.amazonaws.com/{1}/{2}".format(
-#                s3_location,
-#                custombucket,
-#                emp_image_file_name_in_s3)
-
-#        except Exception as e:
-#            return str(e)
-
-#    finally:
-#        cursor.close()
-
-#    print("all modification done...")
-#    return render_template('addempoutput.html', name=emp_name)
+#Leave Approval 
+@app.route("/leaveapproval/")
+def leaveapproval():
+    return render_template("leaveapproval.html",date=datetime.now())
 
 # RMB TO CHANGE PORT NUMBER
 if __name__ == "__main__":
