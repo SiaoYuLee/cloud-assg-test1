@@ -132,7 +132,7 @@ def checkOut():
     cursor = db_conn.cursor()
         
     try:
-        cursor.execute(select_stmt,{'emp_id':int(emp_id)})
+        cursor.execute(select_stmt,{'emp_id':emp_id})
         LoginTime= cursor.fetchall()
        
         for row in LoginTime:
@@ -168,7 +168,7 @@ def checkOut():
         
     return render_template("AttendanceOutput.html",date=datetime.now(),Checkout = formatted_checkout,
      LoginTime=formatted_login[0],TotalWorkingHours=Total_Working_Hours)
-     
+
 #Get Employee DONE
 @app.route("/getemp/")
 def getEmp():
@@ -218,7 +218,7 @@ def CalpayRoll():
    
 
     if 'emp_id' in request.form and 'basic' in request.form and 'days'in request.form:
-        emp_id = int(request.form.get('emp_id'))
+        emp_id = request.form.get('emp_id')
         hourly_salary = int(request.form.get('basic'))
         workday_perweek = int(request.form.get('days'))
 
