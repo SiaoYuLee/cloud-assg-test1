@@ -21,8 +21,8 @@
       <div class="row">
         <div class="12u" id="logo">
           <!-- Logo -->
-          <h1><a href="#" class="mobileUI-site-name">Synchronous</a></h1>
-          <p>Free Responsive Template</p>
+          <h1><a href="#" class="mobileUI-site-name">BOSSKU Employee Management</a></h1>
+          <p>Attendance</p>
         </div>
       </div>
     </div>
@@ -33,8 +33,8 @@
             <nav class="mobileUI-site-nav">
               <ul>
                 <li><a href="/">Homepage</a></li>
-                <li class="current_page_item"><a href="/attendance/">Attendance</a></li>
-                <li><a href="/addemp/">Add Employee</a></li>
+                <li><a href="/attendance/">Attendance</a></li>
+                <li class="current_page_item"><a href="/addemp/">Add Employee</a></li>
                 <li><a href="/getemp/">Get Employee Details</a></li>
                 <li><a href="/payroll/">Payroll Calculator</a></li>
                 <li><a href="/leaveapplication/">Leave Application</a></li>
@@ -47,28 +47,35 @@
     </div>
   </header>
   <div id="page">
-    <center>
-    <h2>ATTENDANCE FORM</h2>
-    <p>Please fill the employee details</p>
-    <div class="5grid-layout">
+    <div class="5grid-layout" id="content">
       <div class="row">
-        <div class="form-container form-container-get">
-          <form action="/attendance/output" autocomplete="on" method="POST" class="form-bubble">
-          <div class="form-bubble-container">
-            <label>Employee ID:</label>
-            <input type="number" name="emp_id" autofocus size="40">
-          </div>
-              <div class="button-container1">
-                  <button type="submit" formaction="/attendance/checkIn" class="form-button">CHECK IN</button>
-                  <a href="/attendance/output">
-                <button type="submit" class="form-button">CHECK OUT</button>
-              </a>
+        <div class="12u">
+          <section>
+            <center>
+            <div class="post">
+              <h2>ATTENDANCE FORM</h2>
+              <p>Please fill the employee details</p>
+              <div class="form-container form-container-get">
+                <form action="/attendance/output" autocomplete="on" method="POST" class="form-bubble">
+                <div class="form-bubble-container">
+                  <label>Employee ID:</label>
+                  <input type="number" name="emp_id" autofocus size="40">
                 </div>
-          </form>
+                    <div class="button-container1">
+                        <button type="submit" formaction="/attendance/checkIn" class="form-button">CHECK IN</button>
+                        <a href="/attendance/output">
+                      <button type="submit" class="form-button">CHECK OUT</button>
+                    </a>
+                      </div>
+                </form>
+            </div>
+            </div>
+          </center>
+          </section>
+        </div>
       </div>
     </div>
   </div>
-</center>
 </div>
 <div class="5grid-layout">
   <div class="row" id="footer-content">

@@ -226,8 +226,8 @@
       <div class="row">
         <div class="12u" id="logo">
           <!-- Logo -->
-          <h1><a href="#" class="mobileUI-site-name">Synchronous</a></h1>
-          <p>Free Responsive Template</p>
+          <h1><a href="#" class="mobileUI-site-name">BOSSKU Employee Management</a></h1>
+          <p>Calculate Payroll</p>
         </div>
       </div>
     </div>
@@ -239,10 +239,10 @@
               <ul>
                 <li><a href="/">Homepage</a></li>
                 <li><a href="/attendance/">Attendance</a></li>
-                <li><a href="/addemp/">Add Employee</a></li>
+                <li class="current_page_item"><a href="/addemp/">Add Employee</a></li>
                 <li><a href="/getemp/">Get Employee Details</a></li>
                 <li><a href="/payroll/">Payroll Calculator</a></li>
-                <li class="current_page_item"><a href="/leaveapplication/">Leave Application</a></li>
+                <li><a href="/leaveapplication/">Leave Application</a></li>
                 <li><a href="/leaveapproval/">Check Leave Approval</a></li>
               </ul>
             </nav>
@@ -252,38 +252,42 @@
     </div>
   </header>
   <div id="page">
-  <center>
-    <h2>CHECK PAYROLL FORM</h2>
-    <p>Please fill the employee details</p>
-    <div class="form-container form-container-get">
-      <form action="/payroll/results" autocomplete="on" method="POST" class="form-bubble">
-      <div class="form-bubble-container">
-        <label>Employee ID:</label>
-        <input type="number" name="emp_id" autofocus size="40">
-        <br>
-        <!-- <label>Working Hours Per Week:</label>
-        <input type="number" name="hour" autofocus size="40"> -->
-        <label>Hourly Salary Rate:</label>
-        <input type="number" name="basic" autofocus size="40">
-        <br>
-        <label>Working Day Per Week:</label>
-        <input type="number" name="days" autofocus size="40">
-        <br>
-      </div>
-      
-      <div class="button-container1">
-      
-          <button type="submit" value="submit" class="form-button2">CALCULATE PAYROLL</button>
-        
-        </div>
-      </form>
-    </center>
-    </div>
-    <div class="5grid-layout">
+    <div class="5grid-layout" id="content">
       <div class="row">
-        <div class="9u mobileUI-main-content">
-          <div id="content">
-          </div>
+        <div class="12u">
+          <section>
+            <center>
+            <div class="post">
+              <h2>PAYROLL</h2>
+              <p>Please fill the employee details</p>
+              <div class="form-container">
+                <form action="/addemp/results" autocomplete="on" method="POST" enctype="multipart/form-data"
+                  class="form-bubble">
+                  <div class="form-container form-container-get">
+                    <form action="/payroll/results" autocomplete="on" method="POST" class="form-bubble">
+                    <div class="form-bubble-container">
+                      <label>Employee ID:</label>
+                      <input type="number" name="emp_id" autofocus size="40">
+                      <br>
+                      <!-- <label>Working Hours Per Week:</label>
+                      <input type="number" name="hour" autofocus size="40"> -->
+                      <label>Hourly Salary Rate:</label>
+                      <input type="number" name="basic" autofocus size="40">
+                      <br>
+                      <label>Working Day Per Week:</label>
+                      <input type="number" name="days" autofocus size="40">
+                      <br>
+                    </div>
+                    
+                    <br>
+                    <div class="button-container1">                    
+                        <button type="submit" value="submit" class="form-button2">CALCULATE PAYROLL</button>
+                      </div>
+                </form>
+              </div>
+            </div>
+          </center>
+          </section>
         </div>
       </div>
     </div>
