@@ -116,7 +116,7 @@ def checkIn():
     finally:
         cursor.close()
         
-    return render_template("AttendanceOutput.html",date=datetime.now(),
+    return render_template("attendanceoutput.html",date=datetime.now(),
     LoginTime=formatted_login)
 
 #CHECK OUT BUTTON
