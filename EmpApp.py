@@ -166,7 +166,7 @@ def checkOut():
     finally:
         cursor.close()
         
-    return render_template("AttendanceOutput.html",date=datetime.now(),Checkout = formatted_checkout,
+    return render_template("attendanceoutput.html",date=datetime.now(),Checkout = formatted_checkout,
      LoginTime=formatted_login[0],TotalWorkingHours=Total_Working_Hours)
 
 #Get Employee DONE
@@ -201,7 +201,7 @@ def Employee():
         cursor.close()
     
 
-     return render_template("GetEmpOutput.html",result=result,date=datetime.now())
+     return render_template("getempoutput.html",result=result,date=datetime.now())
 
 
  #Payroll Calculator  DONE
@@ -251,7 +251,7 @@ def CalpayRoll():
         print("Something Missing")
         return render_template('Payroll.html',date=datetime.now())
 
-    return render_template('PayrollOutput.html',date=datetime.now(),emp_id=emp_id, MonthlySalary= pay , AnnualSalary = annual, WorkingHours = working_hour ,Bonus=Bonus)
+    return render_template('payrolloutput.html',date=datetime.now(),emp_id=emp_id, MonthlySalary= pay , AnnualSalary = annual, WorkingHours = working_hour ,Bonus=Bonus)
 
 #Leave Application 
 @app.route("/leaveapplication/")
