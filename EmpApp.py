@@ -106,7 +106,7 @@ def checkIn():
     print ("Check in time:{}",formatted_login)
 
     try:
-        cursor.execute(update_stmt, { 'check_in': formatted_login ,'emp_id':int(emp_id)})
+        cursor.execute(update_stmt, { 'check_in': formatted_login ,'emp_id':(emp_id)})
         db_conn.commit()
         print(" Data Updated into MySQL")
 
