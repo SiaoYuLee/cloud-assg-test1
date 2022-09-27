@@ -242,10 +242,11 @@
                 <ul>
                   <li><a href="/">Homepage</a></li>
                   <li><a href="/attendance/">Attendance</a></li>
-                  <li class="current_page_item"><a href="/addemp/">Add Employee</a></li>
+                  <li><a href="/addemp/">Add Employee</a></li>
                   <li><a href="/getemp/">Get Employee Details</a></li>
                   <li><a href="/payroll/">Payroll Calculator</a></li>
                   <li><a href="/leaveapplication/">Leave Application</a></li>
+                  <li><a href="/leaveapproval/">Check Leave Approval</a></li>
                 </ul>
               </nav>
             </div>
@@ -259,13 +260,18 @@
           <div class="12u">
             <section>
               <div class="post">
-                <h2>ADD EMPLOYEE FORM</h2>
-                <p>Please fill the employee details</p>
+                <h2>ADD EMPLOYEE</h2>
+                <p></p>
                 <div class="form-container form-container-add">
                   <div class="form-bubble body-container">
-                    <h1>Employee successfully added</h1>
-                    <h2>Following Employee has been added to the database</h2>
-                    <h3>{{ name }}</h3>
+                    <div>
+                      <h2 style="font-size: 25px;">Following Employee has been added to the database : </h2>
+                    </div>
+                    <br>
+                    <div>
+                    <h3 style="font-size: 25px;">{{ name }}</h3>
+                    </div>
+                    <br>
                   </div>
                   <div class="button-container">
                     <a href="/">
@@ -302,7 +308,8 @@
       <div class="6u">
         <section id="box2">
           <h2>Donec dictum metus</h2>
-          <div class="border-img"> <a href="#"><img src="{{ url_for('static', filename='img/pics02.jpg')}}" alt=""></a> </div>
+          <div class="border-img"> <a href="#"><img src="{{ url_for('static', filename='img/pics02.jpg')}}" alt=""></a>
+          </div>
           <p>Nulla enim eros, porttitor eu, tempus id, varius non, nibh. Duis enim nulla, luctus eu, dapibus lacinia,
             venenatis id, quam. Vestibulum imperdiet, magna nec eleifend rutrum, nunc lectus vestibulum velit, euismod
             lacinia quam nisl id lorem. Quisque erat. Vestibulum pellentesque, justo mollis pretium suscipit, justo
