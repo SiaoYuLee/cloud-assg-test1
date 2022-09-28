@@ -228,7 +228,8 @@ def CalpayRoll():
             for row in WorkHour:
                 
                 Hour=row[0]
-                NewHour = datetime.strptime(str(Hour),'%H:%M:%S.%f')
+                #NewHour = datetime.strptime(str(Hour),'%H:%M:%S.%f')
+                NewHour = datetime.strptime(str(Hour),'%H:%M:%S')
                 
                 total_seconds = NewHour.second + NewHour.minute*60 + NewHour.hour*3600
                 Final += total_seconds
