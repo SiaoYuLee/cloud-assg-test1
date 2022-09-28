@@ -1,3 +1,4 @@
+import string
 from flask import Flask, render_template,request
 from datetime import datetime
 from pymysql import connections
@@ -135,12 +136,13 @@ def checkOut():
         cursor.execute(select_stmt,{'emp_id':emp_id})
         LoginTime= cursor.fetchall()
        
-        #for row in LoginTime:
-        #    formatted_login = row
-        #    print(formatted_login[0])
+        for row in LoginTime:
+            formatted_login = row
+            print(formatted_login[0])
     
+        strLoginInTime = string(formatted_login[0])
         CheckoutTime=datetime.now()
-        LogininDate = datetime.strptime(LoginTime,'%Y-%m-%d %H:%M:%S')
+        LogininDate = datetime.strptime(strLoginInTime,'%Y-%m-%d %H:%M:%S')
         #LogininDate = formatted_login[0].strptime('%Y-%m-%d %H:%M:%S')
 
         formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
@@ -164,7 +166,7 @@ def checkOut():
         cursor.close()
         
     return render_template("attendanceoutput.html",date=datetime.now(),Checkout = formatted_checkout,
-     LoginTime=LogininDate,TotalWorkingHours=Total_Working_Hours)
+     LoginTime=formatted_login[0],TotalWorkingHours=Total_Working_Hours)
 
 #Get Employee DONE
 @app.route("/getemp/")
