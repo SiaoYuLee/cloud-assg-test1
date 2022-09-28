@@ -139,10 +139,9 @@ def checkOut():
         for row in LoginTime:
             formatted_login = row
             print(formatted_login[0])
-    
-        strLoginInTime = string(formatted_login[0])
+
         CheckoutTime=datetime.now()
-        LogininDate = datetime.strptime(strLoginInTime,'%Y-%m-%d %H:%M:%S')
+        LogininDate = datetime.strptime(string(formatted_login[0]),'%Y-%m-%d %H:%M:%S')
         #LogininDate = formatted_login[0].strptime('%Y-%m-%d %H:%M:%S')
 
         formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
