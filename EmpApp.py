@@ -138,8 +138,7 @@ def checkOut():
         for row in LoginTime:
             formatted_login = row
             print(formatted_login[0])
-        
-
+    
         CheckoutTime=datetime.now()
         LogininDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
         #LogininDate = formatted_login[0].strptime('%Y-%m-%d %H:%M:%S')
@@ -165,7 +164,7 @@ def checkOut():
         cursor.close()
         
     return render_template("attendanceoutput.html",date=datetime.now(),Checkout = formatted_checkout,
-     LoginTime=formatted_login[0],TotalWorkingHours=Total_Working_Hours)
+     LoginTime=LogininDate,TotalWorkingHours=Total_Working_Hours)
 
 #Get Employee DONE
 @app.route("/getemp/")
