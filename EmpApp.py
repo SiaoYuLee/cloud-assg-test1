@@ -141,7 +141,8 @@ def checkOut():
         
 
         CheckoutTime=datetime.now()
-        LogininDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
+        #LogininDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
+        LogininDate = formatted_login[0].strptime('%Y-%m-%d %H:%M:%S')
 
         formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
         Total_Working_Hours = CheckoutTime - LogininDate
