@@ -106,7 +106,7 @@ def checkIn():
     print ("Check in time:{}",formatted_login)
 
     try:
-        cursor.execute(update_stmt, { 'check_in': formatted_login ,'emp_id':(emp_id)})
+        cursor.execute(update_stmt, { 'check_in': formatted_login ,'emp_id':emp_id})
         db_conn.commit()
         print(" Data Updated into MySQL")
 
@@ -142,9 +142,7 @@ def checkOut():
 
         CheckoutTime=datetime.now()
         LogininDate = datetime.strptime(formatted_login[0],'%Y-%m-%d %H:%M:%S')
-        
 
-      
         formatted_checkout = CheckoutTime.strftime('%Y-%m-%d %H:%M:%S')
         Total_Working_Hours = CheckoutTime - LogininDate
         print(Total_Working_Hours)
@@ -249,7 +247,7 @@ def CalpayRoll():
         Bonus = annual*0.03
     else:
         print("Something Missing")
-        return render_template('Payroll.html',date=datetime.now())
+        return render_template('payrollcalc.html',date=datetime.now())
 
     return render_template('payrolloutput.html',date=datetime.now(),emp_id=emp_id, MonthlySalary= pay , AnnualSalary = annual, WorkingHours = working_hour ,Bonus=Bonus)
 
